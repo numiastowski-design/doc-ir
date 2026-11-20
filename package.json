@@ -1,0 +1,76 @@
+{
+  "name": "doc-ir",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The representation a read document comes back in, and the measure that says no word was lost. The base that pdf-skryba and docs-scribe share.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/lib/base-light.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./language": {
+      "types": "./dist/types/lib/base.d.ts",
+      "default": "./dist/language.js"
+    },
+    "./internal": {
+      "types": "./dist/types/lib/internal.d.ts",
+      "default": "./dist/internal.js"
+    },
+    "./first-party": {
+      "types": "./dist/types/lib/base-first-party.d.ts",
+      "default": "./dist/first-party.js"
+    },
+    "./first-party/browser": {
+      "types": "./dist/types/lib/base-first-party-browser.d.ts",
+      "default": "./dist/first-party/browser.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/.inputs.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/numiastowski-design/doc-ir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/numiastowski-design/doc-ir/issues"
+  },
+  "homepage": "https://github.com/numiastowski-design/doc-ir#readme",
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "test": "vitest run",
+    "lint": "eslint --max-warnings 0 src scripts",
+    "format:check": "prettier --check src scripts",
+    "typecheck": "tsc --noEmit",
+    "lint:pack": "publint run --strict && attw --pack . --profile esm-only",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@types/node": "26.6.6",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "eslint-plugin-sonarjs": "4.2.2",
+    "fast-check": "4.10.2",
+    "prettier": "3.10.1",
+    "publint": "0.3.25",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0",
+    "vitest": "5.1.0"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
