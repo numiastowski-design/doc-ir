@@ -6,7 +6,7 @@ All notable changes to `doc-ir` are written here. The format follows
 version may break the published surface, and a patch never does. Dates are the publication dates on
 the npm registry (UTC).
 
-## [Unreleased]
+## [0.1.0] - 2026-11-20
 
 ### Added
 
