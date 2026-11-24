@@ -142,6 +142,16 @@ export type DocumentNotice =
       pages: readonly { from: number; to: number }[];
       more: number;
     }
+  /** A PDF reader (24/11/2026): parts of pages drawn by an object the reader could not read — its kind is inside the
+   *  damaged bytes, so it may have been a picture or a block carrying text. The page is published without it. Same shape
+   *  as `pdf-text-unread`: `count` objects over every page, `pages` counted from 1 and folded into ranges (at most
+   *  `MAX_NOTICE_PAGE_RANGES`), `more` the pages the kept ranges leave out. One entry per document. */
+  | {
+      kind: "pdf-part-unread";
+      count: number;
+      pages: readonly { from: number; to: number }[];
+      more: number;
+    }
   /** `orchestrator/doc-processor.ts`: the lost-words check could not RUN (never a deliberate abstention) — `source`: the
    *  document could not be read again or the check threw; `page`: the published page could not be read back or compared.
    *  The page is published all the same. At most one entry per part. */
